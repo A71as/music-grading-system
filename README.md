@@ -2,15 +2,8 @@
 Python based album grader based on User Input
 
 
+This program developed with the intention of reviewing any musical album that the user inputs. The user inputs both the artist and an album created by that artist to select for grading. An album is graded based off of the user's score for each individual song, interlude, skit, etc. that appear on the album, which are then run through the MGS algorithm with the the variable k, which is based off of factors like album experience, story, experimental ability, or personal attachment, rewarded at the grader’s discretion
 
-// MGS DEVELOPMENT NOTES 1.0
-
-This program is being developed with the intention of reviewing any musical album that the user chooses. A grade is determined by how many songs are on the album, and how many of those songs have a specific score. For example, how many songs score a 10 out of 10, how many songs score a 9 out of 10 etc. 
-
--Formula developed for determining score
-  - Letter Grade Range not finalized
-- Edge case covered for inputted # of songs greater than songs on the album for songs with n score using if statements
-- ELIF Print statements created for the possible letter grades to display to the user
 
 //MGS DEVELOPMENT NOTES 2.0
 
@@ -18,3 +11,4 @@ This program is being developed with the intention of reviewing any musical albu
   - Import SPOTIPY API to access Spotify database to pull data of Artist, Album, Tracklist, and Number of songs from Spotify to prevent large amounts of user inputs as seen in 1.0
   - Score Formula Unchanged
 
+//MGS 
