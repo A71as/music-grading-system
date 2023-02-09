@@ -1,8 +1,8 @@
 import spotipy
 from spotipy.oauth2 import SpotifyClientCredentials
 
-sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="bce812a6db7e4fc9af9e23647bcc555e",
-                                                           client_secret="c1bfb126244e41408115ae11b0d0b31f"))
+sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(client_id="",
+                                                           client_secret=""))
 
 print("***** Welcome to the Music Grading System V3.0 *****")
 print("***** Created by Ahmed Alami, GitHub: A71as *****")
