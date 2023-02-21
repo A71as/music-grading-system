@@ -31,33 +31,39 @@ if album_id:
     results = sp.album_tracks(album_id)
     tracks = results['items']
     tracklist = []
+    invalid = 0
 
-    print("\nDRate the following songs on a Scale from 1 to 10.\n")
+    print("\nRate the following songs on a Scale from 1 to 10.\n")
     for track in tracks:
         song_name = track['name']
-        while True:
-            user_input = int(input("'{}': ".format(song_name)))
-            try:
-                user_int = int(user_input)
-                if user_int > 10 or user_int < 1:
+        if 'Skit' in song_name:
+            print(f"'{song_name}' is ineligible for grading.")
+            invalid += 1
+        else:
+            while True:
+                try:
+                    user_input = int(input("'{}': ".format(song_name)))
+                    user_int = int(user_input)
+                    if user_int > 10 or user_int < 1:
+                        print("Invalid input, please enter a number between 1 and 10")
+                    else:
+                        tracklist.append([song_name, user_int])
+                        break
+                except ValueError:
                     print("Invalid input, please enter a number between 1 and 10")
-                else:
-                    tracklist.append([song_name, user_int])
-                    break
-            except ValueError:
-                print("Invalid input, please enter a number between 1 and 10")
-    k = int(input("How would you grade this album as a whole? (1-10) "))/2
+    k = int(input("How would you grade this album as a whole? (1-10) ")) / 2
 
 else:
     print("No album was found with the given name and artist.")
+
 
 def mgs(tllength):
     num = k
     for i in range(len(tracklist)):
         for j in range(len(tracklist[i])):
-            num = num + int(tracklist[i][1])/2
+            num = num + int(tracklist[i][1]) / 2
 
-    den = (10 * len(tracklist))
+    den = (10 * (len(tracklist) - invalid))
     score = num / den * 100
     score = min(100, round(score, 2))
 
